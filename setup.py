@@ -22,7 +22,7 @@ setup(
     maintainer='imgix',
     maintainer_email='sdk@imgix.com',
     install_requires=[
-        'imgix<2.0.0',
+        'imgix',
     ],
     classifiers=[
         'Environment :: Web Environment',
