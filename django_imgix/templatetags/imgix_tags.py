@@ -126,7 +126,7 @@ This template tag returns a string that represents the imgix URL for the image.
 
 
 @register.simple_tag
-def forked_get_imgix(image_url, alias=None, wh=None, **kwargs):
+def get_imgix(image_url, alias=None, wh=None, **kwargs):
 
     try:
         domains = settings.IMGIX_DOMAINS
