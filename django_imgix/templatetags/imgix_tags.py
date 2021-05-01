@@ -7,7 +7,6 @@ except ImportError:
     # Python 3 location
     from urllib.parse import urlparse
 
-from django.utils import six
 from django.template import TemplateSyntaxError
 from django.conf import settings
 from django.core.exceptions import ImproperlyConfigured
@@ -127,7 +126,7 @@ This template tag returns a string that represents the imgix URL for the image.
 
 
 @register.simple_tag
-def get_imgix(image_url, alias=None, wh=None, **kwargs):
+def forked_get_imgix(image_url, alias=None, wh=None, **kwargs):
 
     try:
         domains = settings.IMGIX_DOMAINS
@@ -165,7 +164,7 @@ def get_imgix(image_url, alias=None, wh=None, **kwargs):
     # set w and h arguments accordingly
     if wh:
         size = wh
-        if isinstance(size, six.string_types):
+        if isinstance(size, str):
             m = WH_PATTERN.match(size)
             if m:
                 w = int(m.group(1))
